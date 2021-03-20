@@ -21,9 +21,11 @@ class Player:
     def jump(self):
         self.pos += JUMP_VEC
         
-    def display(app):
+    def display(self,app):
         app.fill(*PLAYER_COLOR)
         app.rect(self.pos[0],self.pos[1],PLAYER_WIDTH,PLAYER_HEIGHT)
+    def update(self):
+        pass
 
     
     
