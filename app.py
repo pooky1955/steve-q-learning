@@ -44,6 +44,9 @@ class Game:
         pass
     def display():
         app.background(51,51,51)
+    def update():
+        self.obstacle.update()
+        self.player.update()
 
 
 app = App(WIDTH,HEIGHT) # create window: width, height
