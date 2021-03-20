@@ -24,7 +24,7 @@ class Player:
 
 class Obstacle:
     OBSTACLE_COLOR = (255,255,0)
-    OBSTACLE_Y = 500
+    OBSTACLE_Y = HEIGHT - 200
     SCROLL_SPEED = 20
     def __init__(self,x):
         self.x = x
