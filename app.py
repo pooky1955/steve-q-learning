@@ -3,7 +3,7 @@ from processing_py import *
 
 class Player:
     def __init__(self,x,y):
-        self.pos
+        self.pos = np.array([x,y])
         pass
     
 
