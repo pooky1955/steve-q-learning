@@ -3,13 +3,18 @@ import time
 from processing_py import *
 WIDTH = 600
 HEIGHT = 600
+OBSTACLE_COLOR = (255,255,0)
+OBSTACLE_HEIGHT = 50
+OBSTACLE_WIDTH = 50
+OBSTACLE_Y = HEIGHT - OBSTACLE_HEIGHT
+SCROLL_SPEED = 20
+JUMP_SPEED = 30
+JUMP_VEC = np.array([0,-JUMP_SPEED])
+PLAYER_WIDTH = 30
+PLAYER_HEIGHT = 30
+PLAYER_COLOR = (0,255,0)
+
 class Player:
-    JUMP_SPEED = 30
-    JUMP_VEC = np.array([0,-JUMP_SPEED])
-    PLAYER_WIDTH = 30
-    PLAYER_HEIGHT = 30
-    PLAYER_COLOR = (0,255,0)
-    
     def __init__(self,x,y):
         self.pos = np.array([x,y])
 
@@ -24,11 +29,6 @@ class Player:
     
 
 class Obstacle:
-    OBSTACLE_COLOR = (255,255,0)
-    OBSTACLE_HEIGHT = 50
-    OBSTACLE_WIDTH = 50
-    OBSTACLE_Y = HEIGHT - OBSTACLE_HEIGHT
-    SCROLL_SPEED = 20
     def __init__(self,x):
         self.x = x
     def display(self,app):
