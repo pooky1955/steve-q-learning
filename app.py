@@ -2,9 +2,13 @@ import numpy as np
 from processing_py import *
 
 class Player:
+    JUMP_SPEED = 30
+    JUMP_VEC = np.array([0,-JUMP_SPEED])
     def __init__(self,x,y):
         self.pos = np.array([x,y])
-        pass
+    def jump(self):
+
+    
     
 
 class Obstacle:
