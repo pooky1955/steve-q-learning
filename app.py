@@ -38,7 +38,7 @@ class Obstacle:
 
 
 class Game:
-    def __init__():
+    def __init__(self):
         pass
 
 app = App(WIDTH,HEIGHT) # create window: width, height
