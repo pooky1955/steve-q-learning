@@ -7,6 +7,7 @@ class Player:
     def __init__(self,x,y):
         self.pos = np.array([x,y])
     def jump(self):
+        self.pos += JUMP_VEC
 
     
     
