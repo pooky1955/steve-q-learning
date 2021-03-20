@@ -23,11 +23,13 @@ class Player:
 
 class Obstacle:
     OBSTACLE_COLOR = (255,255,0)
+    OBSTACLE_Y = 500
     SCROLL_SPEED = 20
     def __init__(self,x):
         self.x = x
     def display(self,app):
         app.fill(*OBSTACLE_COLOR)
+        app.rect(self.x,)
     def update(self):
         self.x -= SCROLL_SPEED
 
