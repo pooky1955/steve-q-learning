@@ -60,7 +60,7 @@ class Game:
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 while True:
-    app.redraw()
     game.update()
     game.display(app)
     time.sleep(0.1)
+    app.redraw()
