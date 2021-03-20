@@ -44,6 +44,8 @@ class Game:
         pass
     def display():
         app.background(51,51,51)
+        self.obstacle.display()
+        self.player.display()
     def update():
         self.obstacle.update()
         self.player.update()
