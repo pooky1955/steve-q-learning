@@ -22,8 +22,11 @@ class Player:
     
 
 class Obstacle:
+    OBSTACLE_COLOR = (255,255,0)
     def __init__(x):
         self.x = x
+    def display(app):
+        app.fill(*OBSTACLE_COLOR)
 
 class Game:
     def __init__():
