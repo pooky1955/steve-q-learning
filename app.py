@@ -1,9 +1,11 @@
+import numpy as np
 from processing_py import *
 
 class Player:
-    def __init__(self,x):
-        self.x = x
+    def __init__(self,x,y):
+        self.pos
         pass
+    
 
 class Obstacle:
     def __init__():
