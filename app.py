@@ -1,5 +1,18 @@
 from processing_py import *
 
+class Player:
+    def __init__(self,x):
+        self.x = x
+        pass
+
+class Obstacle:
+    def __init__():
+        pass
+
+class Game:
+    def __init__():
+        pass
+
 app = App(600,400) # create window: width, height
 app.background(0,0,0) # set background:  red, green, blue
 app.fill(255,255,0) # set color for objects: red, green, blue
