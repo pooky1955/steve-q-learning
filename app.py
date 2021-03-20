@@ -23,10 +23,14 @@ class Player:
 
 class Obstacle:
     OBSTACLE_COLOR = (255,255,0)
-    def __init__(x):
+    SCROLL_SPEED = 20
+    def __init__(self,x):
         self.x = x
-    def display(app):
+    def display(self,app):
         app.fill(*OBSTACLE_COLOR)
+    def update(self):
+        self.x -= SCROLL_SPEED
+
 
 class Game:
     def __init__():
