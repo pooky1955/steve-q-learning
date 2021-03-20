@@ -40,7 +40,7 @@ class Obstacle:
 
 class Game:
     def __init__(self):
-        self.player = Player()
+        self.player = Player(20,HEIGHT - 100)
         self.obstacle = Obstacle()
         pass
     def display():
