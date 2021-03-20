@@ -55,4 +55,6 @@ class Game:
 app = App(WIDTH,HEIGHT) # create window: width, height
 game = Game()
 while True:
-    time.sleep(1)
+    game.update()
+    game.display()
+    time.sleep(0.1)
