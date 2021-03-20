@@ -22,8 +22,8 @@ class Player:
     
 
 class Obstacle:
-    def __init__():
-        pass
+    def __init__(x):
+        self.x = x
 
 class Game:
     def __init__():
