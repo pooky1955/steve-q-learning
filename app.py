@@ -6,6 +6,7 @@ class Player:
     JUMP_VEC = np.array([0,-JUMP_SPEED])
     PLAYER_WIDTH = 30
     PLAYER_HEIGHT = 30
+    PLAYER_COLOR = (0,255,0)
     
     def __init__(self,x,y):
         self.pos = np.array([x,y])
@@ -14,6 +15,7 @@ class Player:
         self.pos += JUMP_VEC
         
     def display(app):
+        app.fill(*PLAYER_COLOR)
         app.rect(self.pos[0],self.pos[1],PLAYER_WIDTH,PLAYER_HEIGHT)
 
     
