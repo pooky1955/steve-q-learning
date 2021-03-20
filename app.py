@@ -43,11 +43,11 @@ class Game:
         self.player = Player(20,HEIGHT - 100)
         self.obstacle = Obstacle(WIDTH - 200)
         pass
-    def display():
+    def display(self):
         app.background(51,51,51)
         self.obstacle.display()
         self.player.display()
-    def update():
+    def update(self):
         self.obstacle.update()
         self.player.update()
 
