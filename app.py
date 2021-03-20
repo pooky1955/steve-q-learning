@@ -40,6 +40,8 @@ class Obstacle:
 class Game:
     def __init__(self):
         pass
+    def display():
+        app.background(51,51,51)
 
 app = App(WIDTH,HEIGHT) # create window: width, height
 app.background(0,0,0) # set background:  red, green, blue
