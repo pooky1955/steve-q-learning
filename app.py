@@ -36,7 +36,8 @@ class Player:
         app.fill(*PLAYER_COLOR)
         app.rect(self.pos[0], self.pos[1], PLAYER_WIDTH, PLAYER_HEIGHT)
 
-    def 
+    def apply_gravity(self):
+        self.vel
 
     def update(self):
         self.pos[1] += self.vel_y
