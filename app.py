@@ -59,7 +59,7 @@ class Player:
             self.jump()
 
     def get_inputs(self):
-
+        pass
 
     def think(self):
         # big brain time
