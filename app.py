@@ -40,7 +40,7 @@ class Player:
             self.vel_y = 0
 
     def collide_obstacle(self,obstacle):
-        if obstacle.x <= self.pos[0] + PLAYER_WIDTH and obstacle.x >= self.pos:
+        if obstacle.x <= self.pos[0] + PLAYER_WIDTH and obstacle.x >= self.pos[0]:
             self.died = True
 
 
