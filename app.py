@@ -61,9 +61,8 @@ class Player:
 
     def get_inputs(self):
         distance = (self.obstacle.x - self.pos[0]) / WIDTH 
-        print(distance)
-        return np.array([distance,self.pos[1] / HEIGHT])
-        pass
+        pos_y = self.pos[1] / HEIGHT
+        return np.array([distance,pos_y])
 
     def think(self):
         # big brain time
