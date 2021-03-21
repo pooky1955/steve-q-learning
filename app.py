@@ -25,6 +25,7 @@ class Player:
         self.pos = np.array([x, y])
         self.vel_y = 0
         self.can_jump = False
+        self.died = False
 
     def jump(self):
         if self.can_jump:
@@ -37,6 +38,11 @@ class Player:
             self.can_jump = True
             self.pos[1] = floor_y
             self.vel_y = 0
+
+    def collide_obstacle(self,obstacle):
+        if obstacle.x <= self.pos[0] + PLAYER_WIDTH and obstacle.x >= self.pos:
+            self.died = True
+
 
     def display(self, app):
         app.fill(*PLAYER_COLOR)
@@ -56,7 +62,7 @@ class Player:
         self.apply_gravity()
 
 class Obstacle:
-    def __init__(self, x):
+    def __init__(self, x): 
         self.x = x
 
     def display(self, app):
