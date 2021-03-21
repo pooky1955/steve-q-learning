@@ -27,7 +27,9 @@ class Player:
         self.can_jump = False
         self.died = False
         self.model = create_model()
-    
+
+    def add_obstacle(self,obstacle):
+        self.obstacle = obstacle 
     def jump(self):
         if self.can_jump:
             self.can_jump = False
