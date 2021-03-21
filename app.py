@@ -89,9 +89,9 @@ class Game:
         self.player.display(app)
 
     def update(self):
-        self.player.collide_obstacle(self.obstacle)
         self.obstacle.update()
         self.player.update()
+        self.player.collide_obstacle(self.obstacle)
 
 
 app = App(WIDTH, HEIGHT)  # create window: width, height
