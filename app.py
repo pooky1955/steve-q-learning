@@ -20,6 +20,7 @@ PLAYER_WIDTH = 50
 PLAYER_HEIGHT = 50
 PLAYER_COLOR = (0, 255, 0)
 GAMMA = 0.7
+epsilon = 0.2
 
 
 class Player:
