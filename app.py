@@ -41,7 +41,7 @@ class Player:
 
     def update(self):
         self.pos[1] += self.vel_y
-        # self.collide_floor()
+        self.collide_floor()
         self.apply_gravity()
 
 class Obstacle:
