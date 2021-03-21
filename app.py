@@ -92,6 +92,8 @@ class Game:
         self.player.collide_obstacle(self.obstacle)
         if self.player.died:
             print("you ded")
+            self.player.died = False
+            self.init_game()
 
         self.obstacle.update()
         self.player.update()
