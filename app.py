@@ -62,6 +62,7 @@ class Game:
         self.obstacle = Obstacle(WIDTH - 200)
 
     def display(self, app):
+        print("displaying")
         app.background(51, 51, 51)
         self.obstacle.display(app)
         self.player.display(app)
