@@ -86,6 +86,6 @@ if __name__ == "_main":
     try:
         main()
     except KeyboardInterrupt:
-        app.exit()
         print("bye bye")
+        app.exit()
         
