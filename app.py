@@ -71,7 +71,6 @@ class Player:
         output = self.model.predict(inputs)[0][0]
         if output > 0.5:
             self.jump()
-        print(outputs)
 
     def update(self):
         self.think()
