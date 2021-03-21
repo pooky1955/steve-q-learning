@@ -22,14 +22,17 @@ class Player:
     def __init__(self, x, y):
         self.pos = np.array([x, y])
         self.vel_y = 0
+        self.can_jump = False
 
     def jump(self):
-        if self.vel_y >= -0.1:
+        if self.can_jump:
+            self.can_jump = False
             self.vel_y = JUMP_ACC
 
     def collide_floor(self):
         floor_y = HEIGHT - PLAYER_HEIGHT
         if self.pos[1] > floor_y:
+            self.can_jump = True
             self.pos[1] = floor_y
             self.vel_y = 0
 
