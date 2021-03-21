@@ -77,7 +77,7 @@ game = Game()
 
 
 
-if __name__ == "_main":
+if __name__ == "__main__":
     try:
         while True:
             game.update()
