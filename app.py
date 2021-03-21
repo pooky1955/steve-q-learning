@@ -60,6 +60,8 @@ class Player:
             self.jump()
 
     def get_inputs(self):
+        distance = (self.obstacle.x - self.pos[0]) / WIDTH 
+        print(distance)
         pass
 
     def think(self):
