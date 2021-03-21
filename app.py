@@ -27,7 +27,7 @@ class Player:
     def __init__(self, x, y):
         self.pos = np.array([x, y])
         self.vel_y = 0
-        self.past_q = None
+        self.past_qs = None
         self.reward = 1
         self.can_jump = False
         self.died = False
