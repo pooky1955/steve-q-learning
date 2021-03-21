@@ -75,6 +75,7 @@ class Player:
             inputs = self.get_inputs()
             output = self.model.predict(inputs)[0]
             expected_q = self.reward + output
+            model.fit(self.past_inputs,expected_q)
             if output > 0.5:
                 self.jump()
 
