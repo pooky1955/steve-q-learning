@@ -38,7 +38,7 @@ class Player:
 
     def apply_gravity(self):
         self.vel_y += GRAVITY
-        
+
     def update(self):
         self.pos[1] += self.vel_y
         self.collide_floor()
@@ -73,6 +73,8 @@ class Game:
 
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
-def draw():
+while True:
     game.update()
     game.display(app)
+    game.redraw()
+    time.sleep(0.1)
