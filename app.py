@@ -2,7 +2,7 @@ import numpy as np
 import time
 from processing_py import *
 
-GRAVITY = 10
+GRAVITY_ACC = 10
 WIDTH = 600
 HEIGHT = 600
 OBSTACLE_COLOR = (255, 255, 0)
@@ -37,7 +37,7 @@ class Player:
         app.rect(self.pos[0], self.pos[1], PLAYER_WIDTH, PLAYER_HEIGHT)
 
     def apply_gravity(self):
-        self.vel_y += GRAVITY
+        self.vel_y += GRAVITY_ACC
 
     def update(self):
         self.pos[1] += self.vel_y
@@ -82,4 +82,8 @@ def main():
         time.sleep(0.1)
 
 
-if __name__ == "_main"
+if __name__ == "_main":
+    try:
+        main()
+    except KeyboardI
+        
