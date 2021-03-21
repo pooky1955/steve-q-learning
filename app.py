@@ -80,13 +80,15 @@ class Obstacle:
 
 class Game:
     def __init__(self):
-        self.player = Player(20, HEIGHT - PLAYER_HEIGHT - 800)
-        self.obstacle = Obstacle(WIDTH - 200)
+        self.init_game()
 
     def display(self, app):
         app.background(51, 51, 51)
         self.obstacle.display(app)
         self.player.display(app)
+    def init_game(self):
+        self.player = Player(20, HEIGHT - PLAYER_HEIGHT - 800)
+        self.obstacle = Obstacle(WIDTH - 200)
 
     def update(self):
         self.player.collide_obstacle(self.obstacle)
