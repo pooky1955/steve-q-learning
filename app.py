@@ -37,12 +37,13 @@ class Player:
         app.rect(self.pos[0], self.pos[1], PLAYER_WIDTH, PLAYER_HEIGHT)
 
     def apply_gravity(self):
-        self.vel
-
+        self.vel_y += GRAVITY
+    def collide_floor(self):
+        pass
     def update(self):
         self.pos[1] += self.vel_y
         self.collide_floor()
-
+        self.apply_gravity()
 
 class Obstacle:
     def __init__(self, x):
