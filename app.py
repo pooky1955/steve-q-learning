@@ -61,7 +61,14 @@ class Obstacle:
         app.fill(*OBSTACLE_COLOR)
         app.rect(self.x, OBSTACLE_Y, OBSTACLE_WIDTH, OBSTACLE_HEIGHT)
 
+    def recycle():
+
+    def handle_recycle(self):
+        if self.x < -OBSTACLE_WIDTH:
+            self.x = 
+
     def update(self):
+        self.handle_recycle()
         self.x -= SCROLL_SPEED
 
 
