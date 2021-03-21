@@ -81,20 +81,22 @@ game = Game()
 def setup():
     size(WIDTH,HEIGHT)
 def draw():
-    ellipse(50,50)
-def keyPressed(e):
-    print(e)
+    background(51,51,51,51)
+    fill(255,0,0)
+    ellipse(50,50,100,100)
+# def keyPressed(e):
+#     print(e)
 
-if __name__ == "__main__":
-    try:
-        while True:
-            print(app.key)
-            import ipdb; ipdb.set_trace()
-            game.update()
-            game.display(app)
-            app.redraw()
-            time.sleep(0.1)
-    except KeyboardInterrupt:
-        print("\nbye bye")
-        app.exit()
+# if __name__ == "__main__":
+#     try:
+#         while True:
+#             print(app.key)
+#             import ipdb; ipdb.set_trace()
+#             game.update()
+#             game.display(app)
+#             app.redraw()
+#             time.sleep(0.1)
+#     except KeyboardInterrupt:
+#         print("\nbye bye")
+#         app.exit()
         
