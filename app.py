@@ -40,12 +40,14 @@ class Player:
     def apply_gravity(self):
         self.vel_y += GRAVITY_ACC
 
-    # def handle_jump(self):
-        
+    def handle_jump(self):
+        if keyboard.is_pressed("space"):
+            self.jump()
 
     def update(self):
         self.pos[1] += self.vel_y
         self.collide_floor()
+        self.handle_jump()
         self.apply_gravity()
 
 class Obstacle:
@@ -75,28 +77,22 @@ class Game:
         self.player.update()
 
 
-# app = App(WIDTH, HEIGHT)  # create window: width, height
+app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
-def setup():
-    size(WIDTH,HEIGHT)
-def draw():
-    background(51,51,51,51)
-    fill(255,0,0)
-    ellipse(50,50,100,100)
 # def keyPressed(e):
 #     print(e)
 
-# if __name__ == "__main__":
-#     try:
-#         while True:
-#             print(app.key)
-#             import ipdb; ipdb.set_trace()
-#             game.update()
-#             game.display(app)
-#             app.redraw()
-#             time.sleep(0.1)
-#     except KeyboardInterrupt:
-#         print("\nbye bye")
-#         app.exit()
+if __name__ == "__main__":
+    try:
+        while True:
+            print(app.key)
+            import ipdb; ipdb.set_trace()
+            game.update()
+            game.display(app)
+            app.redraw()
+            time.sleep(0.1)
+    except KeyboardInterrupt:
+        print("\nbye bye")
+        app.exit()
         
