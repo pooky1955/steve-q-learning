@@ -24,7 +24,7 @@ class Player:
         self.vel_y = 0
 
     def jump(self):
-        if self.vel_y < 1:
+        if self.vel_y < 0.1:
             self.vel_y = JUMP_ACC
 
     def collide_floor(self):
