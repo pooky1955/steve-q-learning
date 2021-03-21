@@ -26,6 +26,7 @@ class Player:
         self.vel_y = 0
         self.can_jump = False
         self.died = False
+        self.model = create_model()
 
     def jump(self):
         if self.can_jump:
