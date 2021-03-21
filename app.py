@@ -73,7 +73,7 @@ class Player:
         # big brain time
         if self.past_qs is not None:
             inputs = self.get_inputs()
-            output = self.model.predict(inputs)[0][0]
+            output = self.model.predict(inputs)[0]
             expected_q = self.reward + output
             if output > 0.5:
                 self.jump()
