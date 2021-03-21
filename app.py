@@ -78,6 +78,8 @@ class Game:
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
+def setup():
+
 def keyPressed(e):
     print(e)
 
