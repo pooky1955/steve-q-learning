@@ -80,7 +80,8 @@ game = Game()
 
 def setup():
     size(WIDTH,HEIGHT)
-
+def draw():
+    ellipse(50,50)
 def keyPressed(e):
     print(e)
 
