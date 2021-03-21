@@ -75,7 +75,7 @@ class Game:
         self.player.update()
 
 
-app = App(WIDTH, HEIGHT)  # create window: width, height
+# app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
 def setup():
