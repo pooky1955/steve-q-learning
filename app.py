@@ -101,9 +101,10 @@ class Game:
     def init_game(self):
         self.player = Player(20, HEIGHT - PLAYER_HEIGHT)
         self.obstacle = Obstacle(WIDTH)
+        self.player.add_obstacle(self.obstacle)
 
     def update(self):
-        self.player.collide_obstacle(self.obstacle)
+        self.player.collide_obstacle()
         if self.player.died:
             print("you ded")
             self.player.died = False
