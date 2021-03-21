@@ -84,6 +84,6 @@ if __name__ == "__main__":
             app.redraw()
             time.sleep(0.1)
     except KeyboardInterrupt:
-        print("bye bye")
+        print("\nbye bye")
         app.exit()
         
