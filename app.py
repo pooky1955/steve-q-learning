@@ -65,7 +65,7 @@ class Obstacle:
 
     def handle_recycle(self):
         if self.x < -OBSTACLE_WIDTH:
-            self.x = WIDTH + np.random.randn(1) * 100
+            self.x = int(WIDTH + np.random.randn(1) * 100)
 
     def update(self):
         self.handle_recycle()
