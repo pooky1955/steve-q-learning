@@ -56,8 +56,9 @@ class Player:
         self.vel_y += GRAVITY_ACC
 
     def handle_jump(self):
-        if keyboard.is_pressed("space"):
-            self.jump()
+        pass
+        # if keyboard.is_pressed("space"):
+        #     self.jump()
 
     def get_inputs(self):
         distance = (self.obstacle.x - self.pos[0]) / WIDTH 
@@ -67,7 +68,9 @@ class Player:
     def think(self):
         # big brain time
         inputs = self.get_inputs()
-        outputs = self.model.predict(inputs)[0][0]
+        output = self.model.predict(inputs)[0][0]
+        if output > 0.5:
+            self.jump()
         print(outputs)
 
     def update(self):
