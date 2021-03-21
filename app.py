@@ -1,6 +1,8 @@
 import numpy as np
 import time
 from processing_py import *
+
+GRAVITY = 10
 WIDTH = 600
 HEIGHT = 600
 OBSTACLE_COLOR = (255, 255, 0)
@@ -9,7 +11,7 @@ OBSTACLE_WIDTH = 30
 OBSTACLE_Y = HEIGHT - OBSTACLE_HEIGHT
 SCROLL_SPEED = 20
 JUMP_SPEED = 30
-JUMP_VEC = np.array([0, -JUMP_SPEED])
+#JUMP_VEC = np.array([0, -JUMP_SPEED])
 PLAYER_WIDTH = 50
 PLAYER_HEIGHT = 50
 PLAYER_COLOR = (0, 255, 0)
@@ -18,16 +20,27 @@ PLAYER_COLOR = (0, 255, 0)
 class Player:
     def __init__(self, x, y):
         self.pos = np.array([x, y])
+        self.vel_y = 0
 
     def jump(self):
-        self.pos += JUMP_VEC
+        if self.vel[1] < 1:
+            self.vel = JUMP_SPEED
+
+    def collide_floor(self):
+        floor_y = HEIGHT - PLAYER_HEIGHT
+        if self.pos[1] > floor_y:
+            self.pos[1] = floor_y
+            self.vel_y = 0
 
     def display(self, app):
         app.fill(*PLAYER_COLOR)
         app.rect(self.pos[0], self.pos[1], PLAYER_WIDTH, PLAYER_HEIGHT)
 
+    def 
+
     def update(self):
-        pass
+        self.pos[1] += self.vel_y
+        self.collide_floor()
 
 
 class Obstacle:
@@ -59,8 +72,6 @@ class Game:
 
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
-while True:
+def draw():
     game.update()
     game.display(app)
-    time.sleep(0.1)
-    app.redraw()
