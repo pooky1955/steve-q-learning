@@ -76,7 +76,6 @@ class Game:
 
 
 app = App(WIDTH, HEIGHT)  # create window: width, height
-import ipdb; ipdb.set_trace()
 game = Game()
 
 
