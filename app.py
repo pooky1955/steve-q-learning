@@ -68,6 +68,7 @@ class Player:
         # big brain time
         inputs = self.get_inputs()
         outputs = self.model.predict(inputs)
+        print(outputs)
 
     def update(self):
         self.think()
