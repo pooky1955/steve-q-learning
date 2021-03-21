@@ -99,7 +99,7 @@ if __name__ == "__main__":
             game.update()
             game.display(app)
             app.redraw()
-            time.sleep(1000 / 60)
+            time.sleep(1000 / 60 / 1000)
     except KeyboardInterrupt:
         print("\nbye bye")
         app.exit()
