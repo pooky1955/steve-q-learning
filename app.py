@@ -85,5 +85,7 @@ def main():
 if __name__ == "_main":
     try:
         main()
-    except KeyboardI
+    except KeyboardInterrupt:
+        app.exit()
+        print("bye bye")
         
