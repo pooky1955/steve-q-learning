@@ -74,17 +74,15 @@ class Game:
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
-def main():
-    while True:
-        game.update()
-        game.display(app)
-        app.redraw()
-        time.sleep(0.1)
 
 
 if __name__ == "_main":
     try:
-        main()
+        while True:
+            game.update()
+            game.display(app)
+            app.redraw()
+            time.sleep(0.1)
     except KeyboardInterrupt:
         print("bye bye")
         app.exit()
