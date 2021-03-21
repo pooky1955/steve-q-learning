@@ -1,6 +1,6 @@
 import numpy as np
 import traceback
-import random
+from random import random
 import time
 from processing_py import *
 import keyboard
