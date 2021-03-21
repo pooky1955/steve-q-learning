@@ -69,6 +69,7 @@ class Obstacle:
 
     def update(self):
         self.handle_recycle()
+        SCROLL_SPEED *= 1 + 1e-5
         self.x -= SCROLL_SPEED
 
 
