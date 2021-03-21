@@ -1,4 +1,5 @@
 import numpy as np
+import traceback
 import random
 import time
 from processing_py import *
@@ -104,5 +105,6 @@ if __name__ == "__main__":
         app.exit()
     except Exception as e:
         print(e)
+        traceback.print_exc() 
         app.exit()
         
