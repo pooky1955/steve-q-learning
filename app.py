@@ -58,7 +58,7 @@ class Obstacle:
 
 class Game:
     def __init__(self):
-        self.player = Player(20, HEIGHT - PLAYER_HEIGHT)
+        self.player = Player(20, HEIGHT - PLAYER_HEIGHT - 800)
         self.obstacle = Obstacle(WIDTH - 200)
 
     def display(self, app):
