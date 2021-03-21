@@ -78,7 +78,8 @@ class Game:
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
-
+def keyPressed(e):
+    print(e)
 
 if __name__ == "__main__":
     try:
