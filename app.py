@@ -38,6 +38,7 @@ class Player:
 
     def apply_gravity(self):
         self.vel_y += GRAVITY
+        
     def update(self):
         self.pos[1] += self.vel_y
         self.collide_floor()
