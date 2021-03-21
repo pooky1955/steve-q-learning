@@ -1,4 +1,5 @@
 import numpy as np
+import random
 import time
 from processing_py import *
 import keyboard
@@ -61,11 +62,9 @@ class Obstacle:
         app.fill(*OBSTACLE_COLOR)
         app.rect(self.x, OBSTACLE_Y, OBSTACLE_WIDTH, OBSTACLE_HEIGHT)
 
-    def recycle():
-
     def handle_recycle(self):
         if self.x < -OBSTACLE_WIDTH:
-            self.x = 
+            self.x = WIDTH + random() * 5 - 2.5
 
     def update(self):
         self.handle_recycle()
