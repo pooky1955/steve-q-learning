@@ -27,7 +27,7 @@ class Player:
         self.can_jump = False
         self.died = False
         self.model = create_model()
-
+    
     def jump(self):
         if self.can_jump:
             self.can_jump = False
@@ -56,7 +56,16 @@ class Player:
         if keyboard.is_pressed("space"):
             self.jump()
 
+    def get_inputs(self):
+
+
+    def think(self):
+        # big brain time
+        pass 
     def update(self):
+        self.think()
+
+
         self.pos[1] += self.vel_y
         self.collide_floor()
         self.handle_jump()
