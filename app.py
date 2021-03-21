@@ -24,7 +24,7 @@ class Player:
         self.vel_y = 0
 
     def jump(self):
-        if self.vel[1] < 1:
+        if self.vel_y[1] < 1:
             self.vel_y = JUMP_ACC
 
     def collide_floor(self):
@@ -95,5 +95,6 @@ if __name__ == "__main__":
         app.exit()
     except Exception as e:
         print(e)
+        print(e.)
         app.exit()
         
