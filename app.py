@@ -1,6 +1,7 @@
 import numpy as np
 import time
 from processing_py import *
+import keyboard
 
 GRAVITY_ACC = 10
 WIDTH = 600
@@ -39,6 +40,9 @@ class Player:
     def apply_gravity(self):
         self.vel_y += GRAVITY_ACC
 
+    def handle_jump(self):
+        
+
     def update(self):
         self.pos[1] += self.vel_y
         self.collide_floor()
@@ -72,6 +76,7 @@ class Game:
 
 
 app = App(WIDTH, HEIGHT)  # create window: width, height
+import ipdb; ipdb.set_trace()
 game = Game()
 
 
