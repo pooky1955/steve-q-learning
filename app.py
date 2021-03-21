@@ -25,6 +25,7 @@ class Player:
     def __init__(self, x, y):
         self.pos = np.array([x, y])
         self.vel_y = 0
+        self.reward = 1
         self.can_jump = False
         self.died = False
         self.model = create_model()
