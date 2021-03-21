@@ -55,8 +55,9 @@ class Player:
         if keyboard.is_pressed("space"):
             self.jump()
 
-    def update(self):
+    def update(self,obstacle):
         self.pos[1] += self.vel_y
+        self.collide_obstacle(obstacle)
         self.collide_floor()
         self.handle_jump()
         self.apply_gravity()
