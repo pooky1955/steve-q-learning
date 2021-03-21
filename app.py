@@ -19,6 +19,7 @@ JUMP_ACC = -70
 PLAYER_WIDTH = 50
 PLAYER_HEIGHT = 50
 PLAYER_COLOR = (0, 255, 0)
+GAMMA = 0.7
 
 
 class Player:
