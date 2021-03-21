@@ -84,6 +84,7 @@ game = Game()
 if __name__ == "__main__":
     try:
         while True:
+            print(app.key)
             game.update()
             game.display(app)
             app.redraw()
