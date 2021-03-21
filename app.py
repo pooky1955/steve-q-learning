@@ -93,4 +93,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nbye bye")
         app.exit()
+    except Exception as e:
+        print(e)
+        app.exit()
         
