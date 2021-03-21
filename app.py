@@ -87,7 +87,7 @@ if __name__ == "__main__":
     try:
         while True:
             print(app.key)
-            import ipdb; ipdb.set_trace()
+            # import ipdb; ipdb.set_trace()
             game.update()
             game.display(app)
             app.redraw()
