@@ -10,7 +10,7 @@ OBSTACLE_HEIGHT = 30
 OBSTACLE_WIDTH = 30
 OBSTACLE_Y = HEIGHT - OBSTACLE_HEIGHT
 SCROLL_SPEED = 20
-JUMP_AC = -30
+JUMP_ACC = -30
 #JUMP_VEC = np.array([0, JUMP_AC])
 PLAYER_WIDTH = 50
 PLAYER_HEIGHT = 50
@@ -24,7 +24,7 @@ class Player:
 
     def jump(self):
         if self.vel[1] < 1:
-            self.vel_y = JUMP_AC
+            self.vel_y = JUMP_ACC
 
     def collide_floor(self):
         floor_y = HEIGHT - PLAYER_HEIGHT
@@ -74,9 +74,12 @@ class Game:
 app = App(WIDTH, HEIGHT)  # create window: width, height
 game = Game()
 
-if __name__ == "_main"
+def main():
     while True:
         game.update()
         game.display(app)
         app.redraw()
         time.sleep(0.1)
+
+
+if __name__ == "_main"
