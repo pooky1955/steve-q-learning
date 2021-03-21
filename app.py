@@ -24,7 +24,7 @@ class Player:
 
     def jump(self):
         if self.vel[1] < 1:
-            self.vel_y = JUMP_SPEED
+            self.vel_y = -JUMP_SPEED
 
     def collide_floor(self):
         floor_y = HEIGHT - PLAYER_HEIGHT
