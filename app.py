@@ -40,7 +40,7 @@ class Player:
     def apply_gravity(self):
         self.vel_y += GRAVITY_ACC
 
-    def handle_jump(self):
+    # def handle_jump(self):
         
 
     def update(self):
