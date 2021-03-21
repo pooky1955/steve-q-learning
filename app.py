@@ -10,8 +10,8 @@ OBSTACLE_HEIGHT = 30
 OBSTACLE_WIDTH = 30
 OBSTACLE_Y = HEIGHT - OBSTACLE_HEIGHT
 SCROLL_SPEED = 20
-JUMP_SPEED = 30
-#JUMP_VEC = np.array([0, -JUMP_SPEED])
+JUMP_SPEED = -30
+#JUMP_VEC = np.array([0, JUMP_SPEED])
 PLAYER_WIDTH = 50
 PLAYER_HEIGHT = 50
 PLAYER_COLOR = (0, 255, 0)
@@ -24,7 +24,7 @@ class Player:
 
     def jump(self):
         if self.vel[1] < 1:
-            self.vel_y = -JUMP_SPEED
+            self.vel_y = JUMP_SPEED
 
     def collide_floor(self):
         floor_y = HEIGHT - PLAYER_HEIGHT
