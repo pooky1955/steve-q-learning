@@ -29,8 +29,9 @@ class Player:
         self.died = False
         self.model = create_model()
 
-    def add_obstacle(self,obstacle):
-        self.obstacle = obstacle 
+    def add_obstacle(self, obstacle):
+        self.obstacle = obstacle
+
     def jump(self):
         if self.can_jump:
             self.can_jump = False
@@ -46,7 +47,6 @@ class Player:
     def collide_obstacle(self):
         if self.obstacle.x <= self.pos[0] + PLAYER_WIDTH and self.obstacle.x >= self.pos[0] and self.pos[1] + PLAYER_HEIGHT > HEIGHT - OBSTACLE_HEIGHT:
             self.died = True
-
 
     def display(self, app):
         app.fill(*PLAYER_COLOR)
@@ -64,18 +64,19 @@ class Player:
 
     def think(self):
         # big brain time
-        pass 
+        pass
+
     def update(self):
         self.think()
-
 
         self.pos[1] += self.vel_y
         self.collide_floor()
         self.handle_jump()
         self.apply_gravity()
 
+
 class Obstacle:
-    def __init__(self, x): 
+    def __init__(self, x):
         self.x = x
 
     def display(self, app):
@@ -99,6 +100,7 @@ class Game:
         app.background(51, 51, 51)
         self.obstacle.display(app)
         self.player.display(app)
+
     def init_game(self):
         self.player = Player(20, HEIGHT - PLAYER_HEIGHT)
         self.obstacle = Obstacle(WIDTH)
@@ -133,6 +135,5 @@ if __name__ == "__main__":
         app.exit()
     except Exception as e:
         print(e)
-        traceback.print_exc() 
+        traceback.print_exc()
         app.exit()
-        
