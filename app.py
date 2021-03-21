@@ -66,8 +66,8 @@ class Player:
 
     def think(self):
         # big brain time
-        self.get_inputs()
-        pass
+        inputs = self.get_inputs()
+        print(inputs)
 
     def update(self):
         self.think()
