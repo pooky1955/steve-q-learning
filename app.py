@@ -42,8 +42,8 @@ class Player:
             self.pos[1] = floor_y
             self.vel_y = 0
 
-    def collide_obstacle(self,obstacle):
-        if obstacle.x <= self.pos[0] + PLAYER_WIDTH and obstacle.x >= self.pos[0] and self.pos[1] + PLAYER_HEIGHT > HEIGHT - OBSTACLE_HEIGHT:
+    def collide_obstacle(self):
+        if self.obstacle.x <= self.pos[0] + PLAYER_WIDTH and self.obstacle.x >= self.pos[0] and self.pos[1] + PLAYER_HEIGHT > HEIGHT - OBSTACLE_HEIGHT:
             self.died = True
 
 
