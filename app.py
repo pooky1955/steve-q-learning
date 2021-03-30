@@ -31,7 +31,7 @@ SCROLL_SPEED = 40
 # DQN SETTINGS
 GAMMA = 0.7
 epsilon = 0.2
-MEMORY_SIZE = int(1e2)
+MEMORY_SIZE = int(1e7)
 BATCH_SIZE = 64
 
 
