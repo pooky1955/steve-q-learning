@@ -55,8 +55,9 @@ class Obstacle:
 
 
 class Game:
-    def __init__(self, model: keras.Model):
+    def __init__(self, model: keras.Model,target_model : keras.Model):
         self.model = model
+        self.target_model = target_model
         self.init_game()
 
     def display(self, app: App):
@@ -103,7 +104,7 @@ class ExperienceBuffer:
         '''returns boolean when memory_counter > memory_size'''
         return self.filled
 
-    def learn(self, model):
+    def learn(self, model : keras.Model, target_model : keras.Model):
         sample_inds = np.random.randint(0, self.memory_size, self.batch_size)
 
         def get_buffer(buffer_name):
@@ -113,8 +114,9 @@ class ExperienceBuffer:
         # shape of (batch_size, max_actions)
         expected_qs = model.predict(inputs)
         # shape of (batch_size,) e.g. only the optimal value of q for ONE action
+        next_preds = target_model.predict(get_buffer("next_state"))
         expected_q = get_buffer("reward") + self.gamma * (1 - get_buffer("done")) * \
-            np.argmax(model.predict(get_buffer("next_state")), axis=-1)
+            np.argmax(next_preds, axis=-1)
         qs_range = np.arange(0, expected_qs.shape[0], 1)
         expected_qs[qs_range, get_buffer("action")] = expected_q
         model.train_on_batch(inputs, expected_qs)
@@ -123,15 +125,18 @@ class ExperienceBuffer:
 class Agent:
     def __init__(self):
         self.model = create_model()
+        self.target_model = create_model()
         self.init_agent()
         self.ep_count = 0
         self.epsilon = 0.1
+        self.copy_count = 0
+        self.thresh_copy_count = 1e5
 
     def display(self, app: App):
         self.game.display(app)
 
     def init_agent(self):
-        self.game = Game(self.model)
+        self.game = Game(self.model,self.target_model)
         self.player = self.game.player
 
     def think(self) -> Tuple[numpy.ndarray, int, int, numpy.ndarray, int]:
@@ -152,8 +157,13 @@ class Agent:
 
     def step(self, action: int) -> Tuple[np.ndarray, int, int]:
         '''returns next state, reward, and done'''
+        if self.copy_count == self.thresh_copy_count:
+            print("setting weights of target model")
+            self.target_model.set_weights(self.model.get_weights())
+            self.copy_count = 0
         self.player.execute_action(action)
         self.game.update()
+        self.copy_count += 1
         return self.player.get_inputs(), self.player.get_reward(), int(self.player.died)
 
     def new_episode(self):

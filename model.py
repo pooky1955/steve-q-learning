@@ -4,7 +4,7 @@ from keras.models import Model
 INPUT_SHAPE = (2,)
 
 
-def create_model(input_shape=INPUT_SHAPE):
+def create_model(input_shape=INPUT_SHAPE) -> Model:
     in_layer = Input(shape=input_shape)
     hid_layer = Dense(2, activation="relu")(in_layer)
     out_layer = Dense(2, activation="linear")(hid_layer)
