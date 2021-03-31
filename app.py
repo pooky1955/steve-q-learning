@@ -64,6 +64,9 @@ class Game:
         app.background(51, 51, 51)
         self.obstacle.display(app)
         self.player.display(app)
+        app.fill(255,255,255)
+        app.textSize(20)
+        app.text(f"Player score : {self.player.score}",100,100)
 
     def init_game(self):
         self.player = Player(self.model)
@@ -116,7 +119,7 @@ class ExperienceBuffer:
         # shape of (batch_size,) e.g. only the optimal value of q for ONE action
         next_preds = target_model.predict(get_buffer("next_state"))
         expected_q = get_buffer("reward") + self.gamma * (1 - get_buffer("done")) * \
-            np.argmax(next_preds, axis=-1)
+            np.max(next_preds, axis=-1)
         qs_range = np.arange(0, expected_qs.shape[0], 1)
         expected_qs[qs_range, get_buffer("action")] = expected_q
         model.train_on_batch(inputs, expected_qs)
@@ -130,7 +133,7 @@ class Agent:
         self.ep_count = 0
         self.epsilon = 0.1
         self.copy_count = 0
-        self.thresh_copy_count = 1e5
+        self.thresh_copy_count = 200
 
     def display(self, app: App):
         self.game.display(app)
@@ -158,7 +161,6 @@ class Agent:
     def step(self, action: int) -> Tuple[np.ndarray, int, int]:
         '''returns next state, reward, and done'''
         if self.copy_count == self.thresh_copy_count:
-            print("setting weights of target model")
             self.target_model.set_weights(self.model.get_weights())
             self.copy_count = 0
         self.player.execute_action(action)
@@ -177,6 +179,7 @@ class Player:
         self.pos = np.array([20, HEIGHT - PLAYER_HEIGHT])
         self.vel_y = 0
         self.past_qs = None
+        self.score = 0
         self.reward = 1
         self.can_jump = False
         self.died = False
@@ -231,7 +234,7 @@ class Player:
         actions[action]()
 
     def update(self):
-
+        self.score += 1
         self.pos[1] += self.vel_y
         self.collide_floor()
         self.handle_jump()
