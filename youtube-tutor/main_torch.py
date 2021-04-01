@@ -1,14 +1,14 @@
-from app_old import Agent
+print("yo")
+from app_torch import Agent
 import numpy as np
 import gym
-import tensorflow as tf
-
+print("outside of main?")
 if __name__ == "__main__":
-    tf.compat.v1.disable_eager_execution()
+    print("running main?")
     env = gym.make('LunarLander-v2')
     lr = 0.001
     n_games = 500
-    agent = Agent(gamma=0.99,epsilon=1.0,lr=lr,input_dims=env.observation_space.shape,n_actions=env.action_space.n,batch_size=64,epsilon_end=0.01,fname="custom_dqn_model.h5")
+    agent = Agent(gamma=0.99,epsilon=1.0,lr=lr,input_dims=env.observation_space.shape[0],n_actions=env.action_space.n,batch_size=1,epsilon_end=0.01,fname="custom_dqn_model.h5")
     scores = []
     eps_history = []
     for i in range(n_games):
@@ -18,9 +18,8 @@ if __name__ == "__main__":
         while not done:
             action = agent.choose_action(observation)
             observation_, reward, done,info = env.step(action)
-            env.render()
             score += reward
-            agent.store_transition(observation, action, reward , done)
+            agent.store_transition(observation, action, reward, observation_, done)
             observation = observation_
             agent.learn()
         eps_history.append(agent.epsilon)
