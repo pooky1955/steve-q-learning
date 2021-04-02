@@ -86,7 +86,7 @@ class DQNModel(nn.Module):
         return outputs
 
     def training_step(self, inputs: torch.Tensor, outputs: torch.Tensor):
-        '''training step, but accepting inputs and outptus only as torch tensors converted to correct device'''
+        '''training step, but accepting inputs and outputs only as torch tensors converted to correct device'''
         inputs = to_t(inputs)
         outputs = to_t(outputs)
         self.optim.zero_grad()
@@ -119,7 +119,7 @@ class Agent:
         self.epsilon = epsilon
         self.epsilon_min = epsilon_end
         self.epsilon_dec = epsilon_dec
-        self.q_eval = DQNModel(lr, n_actions, input_dims, 256, 256)
+        self.q_eval = DQNModel(lr, n_actions, input_dims, 10, 10)
         self.memory = ReplayBuffer(mem_size, input_dims)
 
     def store_transition(self, state, action, reward, new_state, done):
@@ -137,10 +137,10 @@ class Agent:
     def learn(self):
         if self.memory.mem_counter < self.batch_size:
             return
-        states, actions, rewards, states_, dones = self.memory.sample_buffer(
+        states, actions, rewards, new_states, dones = self.memory.sample_buffer(
             self.batch_size)
         q_eval = self.q_eval.predict_numpy(states)
-        q_next = self.q_eval.predict_numpy(states_)
+        q_next = self.q_eval.predict_numpy(new_states)
         # import ipdb; ipdb.set_trace()
         q_target = np.copy(q_eval)
         batch_index = np.arange(self.batch_size, dtype=np.int32)
