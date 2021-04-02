@@ -42,7 +42,7 @@ class ReplayBuffer():
 def get_default_device():
     # return torch.device('cpu')
     if torch.cuda.is_available():
-        return torch.device('cuda:0')
+        return torch.device('cuda')
     else:
         return torch.device('cpu')
 
@@ -76,7 +76,7 @@ class DQNModel(nn.Module):
             inputs_tens = to_t(inputs)
             return self.forward(inputs_tens)
     def predict_numpy(self,inputs : np.ndarray):
-        return self.predict(inputs).detach().numpy()
+        return self.predict(inputs).cpu().numpy()
 
     def forward(self, inputs: torch.Tensor):
         '''forward is the method called when invoking __call__ (inherited from nn.Module)'''
@@ -139,6 +139,7 @@ class Agent:
             self.batch_size)
         q_eval = self.q_eval.predict_numpy(states)
         q_next = self.q_eval.predict_numpy(states_)
+        # import ipdb; ipdb.set_trace()
         q_target = np.copy(q_eval)
         batch_index = np.arange(self.batch_size, dtype=np.int32)
         q_target[batch_index, actions] = rewards + \

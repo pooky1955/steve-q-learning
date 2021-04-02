@@ -8,7 +8,7 @@ if __name__ == "__main__":
     env = gym.make('LunarLander-v2')
     lr = 0.001
     n_games = 500
-    agent = Agent(gamma=0.99,epsilon=1.0,lr=lr,input_dims=env.observation_space.shape[0],n_actions=env.action_space.n,batch_size=1,epsilon_end=0.01,fname="custom_dqn_model.h5")
+    agent = Agent(gamma=0.99,epsilon=1.0,lr=lr,input_dims=env.observation_space.shape[0],n_actions=env.action_space.n,batch_size=64,epsilon_end=0.01,fname="custom_dqn_model.h5")
     scores = []
     eps_history = []
     for i in range(n_games):
@@ -21,6 +21,7 @@ if __name__ == "__main__":
             score += reward
             agent.store_transition(observation, action, reward, observation_, done)
             observation = observation_
+            env.render()
             agent.learn()
         eps_history.append(agent.epsilon)
         scores.append(score)
