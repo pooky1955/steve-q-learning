@@ -62,6 +62,7 @@ class Player:
         if self.can_jump:
             self.can_jump = False
             self.vel_y = JUMP_ACC
+            self.reward = -5
 
     def collide_floor(self):
         floor_y = HEIGHT - PLAYER_HEIGHT
@@ -88,7 +89,9 @@ class Player:
         return np.array([distance, pos_y]).reshape((1, 2))
 
     def get_reward(self) -> int:
-        return 1 if not self.died else -100
+        curr_reward =  self.reward
+        self.reward = 1
+        return curr_reward
 
     def idle(self):
         pass
