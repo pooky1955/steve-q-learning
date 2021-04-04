@@ -15,3 +15,6 @@ def to_t(data, device=get_default_device()) -> torch.Tensor:
     elif isinstance(data, torch.Tensor):
         return data.to(device)
     assert False, "used to_tensor on something that was not np.array nor torch.Tensor"
+
+def to_n(data : torch.Tensor) -> np.ndarray:
+    return data.cpu().detach().numpy()

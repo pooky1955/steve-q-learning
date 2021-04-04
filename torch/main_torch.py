@@ -1,6 +1,7 @@
 print("yo")
 from agents.simple import DQNModel
 from agents.double import DDQNModel
+from agents.dueling import DuelingDQN
 from agent import Agent
 from env import Game
 import numpy as np
@@ -21,7 +22,8 @@ if __name__ == "__main__":
     output_dims = env.action_space.n
     # input_dims = 2
     # output_dims = 2
-    model = DDQNModel(lr, output_dims, input_dims, 256, 256, int(1e2))
+    # model = DDQNModel(lr, output_dims, input_dims, 256, 256, int(1e2))
+    model = DuelingDQN(lr, output_dims, input_dims, 256, 256)
     # model = DQNModel(lr, output_dims, input_dims, 256, 256)
     agent = Agent(gamma=0.99,epsilon=1.0,lr=lr,input_dims=input_dims,n_actions=output_dims,batch_size=128,epsilon_end=0.01,fname="custom_dqn_model.h5",model=model)
     scores = []

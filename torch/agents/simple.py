@@ -4,7 +4,7 @@ import torch.optim as optim
 from torch import Tensor
 from torch import nn
 from memory import ReplayBuffer
-from utils import to_t, get_default_device
+from utils import to_t, get_default_device, to_n
 
 
 
@@ -29,7 +29,7 @@ class DQNModel(nn.Module):
             inputs_tens = to_t(inputs)
             return self.forward(inputs_tens)
     def predict_numpy(self,inputs : np.ndarray):
-        return self.predict(inputs).cpu().numpy()
+        return to_n(self.predict(inputs))
 
     def fit(self,states,actions,rewards,new_states,dones,gamma):
         q_eval = self.predict_numpy(states)
